@@ -11,12 +11,12 @@ public class EstoqueProdutos {
         this.estoqueProdutosMap = new HashMap<>();
     }
 
-    public void adicionarProduto(String nome, int quantidade, double preco){
+    public void adicionarProduto(long cod, String nome, int quantidade, double preco){
         estoqueProdutosMap.put(cod, new Produto(nome, preco, quantidade));
     }
 
 
-    public void exibirProduto(){
+    public void exibirProdutos(){
         System.out.println(estoqueProdutosMap);
     }
 
@@ -39,6 +39,23 @@ public class EstoqueProdutos {
             }
         }
         return produtoMaisCaro;
+    }
+
+    public static void main(String[] args) {
+        EstoqueProdutos estoque = new EstoqueProdutos();
+
+        estoque.exibirProdutos();
+
+        estoque.adicionarProduto(1, "Produto A", 10, 5.0);
+        estoque.adicionarProduto(2, "Produto B", 5, 10.0);
+        estoque.adicionarProduto(3, "Produto C", 2, 15.0);
+        estoque.adicionarProduto(4, "Produto D", 2, 20.0);
+
+        estoque.exibirProdutos();
+
+        System.out.println("Valor total do estoque: R$ " + estoque.calculaValorTotalEstoque());
+        System.out.println("Produto mais caro: " + estoque.obterProdutoMaisCaro());
+
     }
 
 }

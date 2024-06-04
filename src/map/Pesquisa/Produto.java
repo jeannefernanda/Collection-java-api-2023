@@ -22,4 +22,13 @@ public class Produto {
         this.preco = preco;
         this.quantidade = quantidade;
     }
+
+    @Override
+    public String toString() {
+        return "Produto{" +
+                "nome='" + nome + '\'' +
+                ", preco=" + preco +
+                ", quantidade=" + quantidade +
+                '}';
+    }
 }
